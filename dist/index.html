@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/dist/styles.css">
+  <title>Le Jeu de Dés</title>
+</head>
+  <body>
+    <!-- game module -->
+    <main>
+      <!-- left player 1-->
+      <section class="player player-0 playe-active">
+        <h2 class="name" id="name-0">Joueur 1</h2>
+        <p class="score" id="score-0">0</p>
+        <div class="pending">
+          <p class="pending-label">Score en cours...</p>
+          <p class="pending-score" id="pending-0">0</p>
+        </div>
+      </section>
+      <!-- right player 2 -->
+      <section class="player player-1">
+        <h2 class="name" id="name-1">Joueur 2</h2>
+        <p class="score" id="score-1">0</p>
+        <div class="pending">
+          <p class="pending-label">Score en cours...</p>
+          <p class="pending-score" id="pending-1">0</p>
+        </div>
+      </section>
+
+      <img src="/dist/img/de-1.png" alt="Jeu de dés" class="dice" id="dice-1"/>
+      <button class="btn btn-new">Nouveau Jeau</button>
+      <button class="btn btn-roll">Jeter</button>
+      <button class="btn btn-hold">Récupérer</button>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
