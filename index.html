@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/dist/styles.css">
+
+  <title>Le Jeu des Dés</title>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 flex justify-center items-center">
+  <main class="bg-white rounded-xl shadow-2xl flex w-full sm:w-3/4 lg:w-1/2 p-10">
+    <!-- left player -->
+    <section class="flex flex-col flex-auto align-center text-2xl text-center">
+      <h2 class="font-thin uppercase text-3xl tracking-wide pb-8">Joueur 1</h2>
+      <p class="font-thin text-9xl text-pink-600 p-4">0</p>
+      <div class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 rounded-xl shadow-2xl text-white py-4 px-2 mt-6">
+        <p class="text-sm tracking-wider mb-2">Score en cours...</p>
+        <p class="text-4xl">0</p>
+      </div>
+    </section>
+
+    <!-- features -->
+    <section class="flex flex-col justify-evenly text-center mx-10 lg:mx-20">
+      <button class="rounded-full bg-pink-600 py-2 text-white uppercase tracking-wide shadow-md hover:bg-pink-700">Nouveau Jeu</button>
+      <img src="/dist/img/de-1.png" alt="jeu de dés" width="150px" class="mx-auto">
+      <button class="rounded-full bg-pink-600 py-2 text-white uppercase tracking-wide shadow-md hover:bg-pink-700" >Jeter</button>
+      <button class="rounded-full bg-pink-600 py-2 text-white uppercase tracking-wide shadow-md hover:bg-pink-700">Récupérer</button>
+    </section>
+    
+    <!-- right player -->
+    <section class="flex flex-col flex-auto align-center text-2xl text-center">
+      <h2 class="font-thin uppercase text-3xl tracking-wide pb-8">Joueur 2</h2>
+      <p class="font-thin text-9xl text-pink-600 p-4">0</p>
+      <div class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 rounded-xl shadow-2xl text-white py-4 px-2 mt-6">
+        <p class="text-sm tracking-wider mb-2">Score en cours...</p>
+        <p class="text-4xl">0</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
