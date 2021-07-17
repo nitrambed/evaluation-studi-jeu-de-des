@@ -34,14 +34,20 @@ Hold =
 // NEW GAME FEATURE
 
   // setting Global Score to 0 
-
+  var globalScore = [0, 0];
+  document.getElementById('score-0').textContent = '0';
+  document.getElementById('score-1').textContent = '0';
+  
   // setting Round Score to 0 
-
+  var roundScore = 0;
+  document.getElementById('score-0').textContent = '0';
+  document.getElementById('score-1').textContent = '0';
+  
   // hidding Dice
-document.querySelector('.dice').style.display = 'none';
+  document.querySelector('.dice').style.visibility = 'hidden';
 
   // setting Active Player as Player 1
-
+  var activePlayer = 0;
   
 
 
@@ -51,17 +57,36 @@ document.querySelector('.dice').style.display = 'none';
 document.querySelector('.btn-roll').addEventListener('click', () => {
   // dice random roll 
   let diceFace = Math.floor(Math.random() * 6) + 1;
-  // displaying active player dice result 
-  document.getElementById('roundscore-0').textContent = diceFace;
   // displaying the right dice img according to random dice 
-  document.querySelector('.dice').style.display = 'block';
+  document.querySelector('.dice').style.visibility = 'visible';
   document.querySelector('.dice').src = '/dist/img/de-' + diceFace + '.png';
-  // if faceDice !=== 1 ? adding round score to global score :  round score === 0 and Change Active Player
+  // if faceDice !== 1 ? adding round score to global score and display it : set round score to 0 and Change Active Player
+  if (diceFace !== 1) {
+    roundScore += diceFace;
+    console.log(roundScore);
+    document.getElementById('roundscore-' + activePlayer).textContent = roundScore;
+  } else {
+    // avoid btn onclick behaviour
+    document.querySelector('.btn-roll').disabled = true;
+    // setting setTimeout to avoid visibility class behaviour
+    setTimeout( () => {
+      roundScore = 0;
+      document.getElementById('roundscore-' + activePlayer).textContent = 0;
+      activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+      // toogle active class to style active player
+      document.querySelector('.player-0').classList.toggle('hidden');
+      document.querySelector('.player-1').classList.toggle('hidden');
+      //hide dice
+      document.querySelector('.dice').style.visibility = 'hidden';
+      //active btn onclick behaviour
+      document.querySelector('.btn-roll').disabled = false;
+    }, 2000);
+  }
 });
   
   
 
 // HOLD POINTS FEATURE
   // adding round score to global score
-
+ 
   // if statement : GS > 100 ? Active Player wins : Change Active Player

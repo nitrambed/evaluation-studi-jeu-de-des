@@ -12,10 +12,18 @@
 </head>
 
 <body class="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 flex justify-center items-center">
-  <main class="bg-white rounded-xl shadow-2xl flex w-full sm:w-3/4 lg:w-1/2 p-10">
+  <main class="bg-white rounded-xl shadow-2xl flex w-full sm:w-3/4 xl:w-1/2 p-10">
     <!-- left player -->
     <section class="flex flex-col flex-auto align-center text-2xl text-center">
-      <h2 class="font-thin uppercase text-3xl tracking-wide pb-8">Joueur 1</h2>
+      <div class="flex justify-around">
+        <span class="relative inline-flex">
+          <h2 class="font-thin uppercase text-3xl tracking-wide pb-8 pr-4">Joueur 1</h2>
+          <span class="player-0 flex absolute h-2 w-2 top-0 right-0 -mt-1 -mr-1">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+          </span>
+        </span>
+      </div>
+      
       <p class="font-thin text-9xl text-pink-600 p-4" id="score-0">0</p>
       <div class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 rounded-xl shadow-2xl text-white py-4 px-2 mt-6">
         <p class="text-sm tracking-wider mb-2">Score en cours...</p>
@@ -33,7 +41,14 @@
     
     <!-- right player -->
     <section class="flex flex-col flex-auto align-center text-2xl text-center">
-      <h2 class="font-thin uppercase text-3xl tracking-wide pb-8">Joueur 2</h2>
+      <div class="flex justify-around">
+        <span class="relative inline-flex">
+          <h2 class="font-thin uppercase text-3xl tracking-wide pb-8 pr-4">Joueur 2</h2>
+          <span class="player-1 flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1 hidden">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+          </span>
+        </span>
+      </div>
       <p class="font-thin text-9xl text-pink-600 p-4" id="score-1">0</p>
       <div class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 rounded-xl shadow-2xl text-white py-4 px-2 mt-6">
         <p class="text-sm tracking-wider mb-2">Score en cours...</p>
