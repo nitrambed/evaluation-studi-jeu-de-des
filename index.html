@@ -16,30 +16,31 @@
     <!-- left player -->
     <section class="flex flex-col flex-auto align-center text-2xl text-center">
       <h2 class="font-thin uppercase text-3xl tracking-wide pb-8">Joueur 1</h2>
-      <p class="font-thin text-9xl text-pink-600 p-4">0</p>
+      <p class="font-thin text-9xl text-pink-600 p-4" id="score-0">0</p>
       <div class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 rounded-xl shadow-2xl text-white py-4 px-2 mt-6">
         <p class="text-sm tracking-wider mb-2">Score en cours...</p>
-        <p class="text-4xl">0</p>
+        <p class="text-4xl" id="roundscore-0">0</p>
       </div>
     </section>
 
     <!-- features -->
-    <section class="flex flex-col justify-evenly text-center mx-10 lg:mx-20">
+    <section class="btn-newgame flex flex-col justify-evenly text-center mx-10 lg:mx-20">
       <button class="rounded-full bg-pink-600 py-2 text-white uppercase tracking-wide shadow-md hover:bg-pink-700">Nouveau Jeu</button>
-      <img src="/dist/img/de-1.png" alt="jeu de dés" width="150px" class="mx-auto">
-      <button class="rounded-full bg-pink-600 py-2 text-white uppercase tracking-wide shadow-md hover:bg-pink-700" >Jeter</button>
-      <button class="rounded-full bg-pink-600 py-2 text-white uppercase tracking-wide shadow-md hover:bg-pink-700">Récupérer</button>
+      <img src="/dist/img/de-1.png" alt="jeu de dés" width="150px" class="dice mx-auto">
+      <button class="btn-roll rounded-full bg-pink-600 py-2 text-white uppercase tracking-wide shadow-md hover:bg-pink-700" >Jeter</button>
+      <button class="btn-hold rounded-full bg-pink-600 py-2 text-white uppercase tracking-wide shadow-md hover:bg-pink-700">Récupérer</button>
     </section>
     
     <!-- right player -->
     <section class="flex flex-col flex-auto align-center text-2xl text-center">
       <h2 class="font-thin uppercase text-3xl tracking-wide pb-8">Joueur 2</h2>
-      <p class="font-thin text-9xl text-pink-600 p-4">0</p>
+      <p class="font-thin text-9xl text-pink-600 p-4" id="score-1">0</p>
       <div class="bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 rounded-xl shadow-2xl text-white py-4 px-2 mt-6">
         <p class="text-sm tracking-wider mb-2">Score en cours...</p>
-        <p class="text-4xl">0</p>
+        <p class="text-4xl" id="roundscore-1">0</p>
       </div>
     </section>
   </main>
+<script src="app.js"></script>
 </body>
 </html>
