@@ -79,7 +79,7 @@ document.querySelector('.btn-roll').addEventListener('click', () => {
     globalScore[activePlayer] += roundScore;
     document.querySelector('#score-' + activePlayer).textContent = globalScore[activePlayer];
     // if statement : GS > 100 ? Active Player wins : Change Active Player
-    if (globalScore[activePlayer] > 10) {
+    if (globalScore[activePlayer] > 100) {
       //display that active player wins
       document.querySelector('.player-id-' + activePlayer).textContent = 'Gagné';
       document.querySelector('.player-' + activePlayer).classList.add("hidden");
