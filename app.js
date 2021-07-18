@@ -51,8 +51,8 @@ document.querySelector('.btn-roll').addEventListener('click', () => {
   // dice random roll 
   let diceFace = Math.floor(Math.random() * 6) + 1;
   // displaying the right dice img according to random dice 
-  document.querySelector('.dice').style.visibility = 'visible';
   document.querySelector('.dice').src = '/dist/img/de-' + diceFace + '.png';
+  document.querySelector('.dice').style.visibility = 'visible';
   // if faceDice !== 1 ? adding round score to global score and display it : set round score to 0 and Change Active Player
   if (diceFace !== 1) {
     roundScore += diceFace;
