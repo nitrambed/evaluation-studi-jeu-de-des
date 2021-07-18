@@ -30,25 +30,18 @@ Hold =
 
 */
 
+// define global var
+var globalScore;
+var roundScore;
+var activePlayer;
+
+// FIRST TIME STARTING GAME
+startGame();
 
 // NEW GAME FEATURE
 
-  // setting Global Score to 0 
-  var globalScore = [0, 0];
-  document.getElementById('score-0').textContent = '0';
-  document.getElementById('score-1').textContent = '0';
-  
-  // setting Round Score to 0 
-  var roundScore = 0;
-  document.getElementById('score-0').textContent = '0';
-  document.getElementById('score-1').textContent = '0';
-  
-  // hidding Dice
-  document.querySelector('.dice').style.visibility = 'hidden';
-
-  // setting Active Player as Player 1
-  var activePlayer = 0;
-  
+  //start game function
+  document.querySelector('.btn-newgame').addEventListener('click', startGame);
 
 
 
@@ -63,23 +56,17 @@ document.querySelector('.btn-roll').addEventListener('click', () => {
   // if faceDice !== 1 ? adding round score to global score and display it : set round score to 0 and Change Active Player
   if (diceFace !== 1) {
     roundScore += diceFace;
-    console.log(roundScore);
     document.getElementById('roundscore-' + activePlayer).textContent = roundScore;
   } else {
     // avoid btn onclick behaviour
     document.querySelector('.btn-roll').disabled = true;
+    document.querySelector('.btn-hold').disabled = true;
     // setting setTimeout to avoid visibility class behaviour
     setTimeout( () => {
-      roundScore = 0;
-      document.getElementById('roundscore-' + activePlayer).textContent = 0;
-      activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-      // toogle active class to style active player
-      document.querySelector('.player-0').classList.toggle('hidden');
-      document.querySelector('.player-1').classList.toggle('hidden');
-      //hide dice
-      document.querySelector('.dice').style.visibility = 'hidden';
+      newRound();
       //active btn onclick behaviour
       document.querySelector('.btn-roll').disabled = false;
+      document.querySelector('.btn-hold').disabled = false;
     }, 2000);
   }
 });
@@ -88,5 +75,65 @@ document.querySelector('.btn-roll').addEventListener('click', () => {
 
 // HOLD POINTS FEATURE
   // adding round score to global score
- 
-  // if statement : GS > 100 ? Active Player wins : Change Active Player
+  document.querySelector('.btn-hold').addEventListener('click', () => {
+    globalScore[activePlayer] += roundScore;
+    document.querySelector('#score-' + activePlayer).textContent = globalScore[activePlayer];
+    // if statement : GS > 100 ? Active Player wins : Change Active Player
+    if (globalScore[activePlayer] > 10) {
+      //display that active player wins
+      document.querySelector('.player-id-' + activePlayer).textContent = 'Gagné';
+      document.querySelector('.player-' + activePlayer).classList.add("hidden");
+      document.querySelector('.player-id-' + activePlayer).classList.add("font-bold");
+      document.querySelector('.player-id-' + activePlayer).classList.add("text-red-600");
+      // start a new game
+      setTimeout( () => {
+        startGame();
+      }, 2000);
+    } else{
+      newRound();
+    } 
+  });
+  
+
+
+
+
+  // FUNCTIONS
+
+function newRound() {
+  roundScore = 0;
+  document.getElementById('roundscore-' + activePlayer).textContent = 0;
+  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+  // toogle active class to style active player
+  document.querySelector('.player-0').classList.toggle('hidden');
+  document.querySelector('.player-1').classList.toggle('hidden');
+  //hide dice
+  document.querySelector('.dice').style.visibility = 'hidden';
+}
+
+function startGame() {
+    // setting Global Score to 0 
+    globalScore = [0, 0];
+    document.getElementById('score-0').textContent = '0';
+    document.getElementById('score-1').textContent = '0';
+    
+    // setting Round Score to 0 
+    roundScore = 0;
+    document.getElementById('roundscore-0').textContent = '0';
+    document.getElementById('roundscore-1').textContent = '0';
+    
+    // hidding Dice
+    document.querySelector('.dice').style.visibility = 'hidden';
+  
+    // setting Active Player as Player 1
+    activePlayer = 0;
+
+    document.querySelector('.player-0').classList.remove('hidden');
+    document.querySelector('.player-1').classList.add('hidden');
+
+    //start gamin after winning
+    document.querySelector('.player-id-0').textContent = 'Joueur 1';
+    document.querySelector('.player-id-1').textContent = 'Joueur 2';
+    document.querySelector('.player-id-' + activePlayer).classList.remove("font-bold");
+    document.querySelector('.player-id-' + activePlayer).classList.remove("text-red-600");
+}
